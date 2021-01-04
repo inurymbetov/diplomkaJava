@@ -1,0 +1,2 @@
+inurymbetov/com/github/diplomka/Main.java
+ inurymbetov.com.github.diplomka.Main

@@ -1,7 +1,9 @@
 package inurymbetov.com.github.diplomka.Form;
 
 import inurymbetov.com.github.diplomka.Command;
-import inurymbetov.com.github.diplomka.InfoList;
+import inurymbetov.com.github.diplomka.dao.impl.RegistrationDao;
+import inurymbetov.com.github.diplomka.entity.User;
+import inurymbetov.com.github.diplomka.enums.Rule;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.*;
@@ -18,43 +20,43 @@ public class Registration implements ActionListener, Command {
         if (e.getActionCommand().equals(send.getActionCommand())) send();
     }
 
-    private JFrame frame                = new JFrame();
+    private JFrame frame = new JFrame();
 
-    private JButton send                = new JButton("send");
-    private JButton clear               = new JButton("clear");
+    private JButton send = new JButton("send");
+    private JButton clear = new JButton("clear");
 
-    private JTextField nameF            = new JTextField();
-    private JTextField nameS            = new JTextField();
-    private JTextField login            = new JTextField();
-    private JTextField phone            = new JTextField();
-    private JPasswordField password     = new JPasswordField();
+    private JTextField nameF = new JTextField();
+    private JTextField nameS = new JTextField();
+    private JTextField login = new JTextField();
+    private JTextField phone = new JTextField();
+    private JPasswordField password = new JPasswordField();
 
-    private JLabel titleLabel           = new JLabel("Registration");
+    private JLabel titleLabel = new JLabel("Registration");
 
-    public Registration(){
+    public Registration() {
 
-        titleLabel.setBounds            (180, 120, 140 ,40);
+        titleLabel.setBounds(180, 120, 140, 40);
 
-        nameF.setBounds                 (60,220,180,40);
-        nameS.setBounds                 (260,220,180,40);
-        login.setBounds                 (60, 301, 380, 39);
-        phone.setBounds                 (60, 380, 380, 39);
-        password.setBounds              (60,460,380,39);
+        nameF.setBounds(60, 220, 180, 40);
+        nameS.setBounds(260, 220, 180, 40);
+        login.setBounds(60, 301, 380, 39);
+        phone.setBounds(60, 380, 380, 39);
+        password.setBounds(60, 460, 380, 39);
 
-        send.setBounds                  (60,540,180,40);
-        send.addActionListener          (this);
-        clear.setBounds                 (260,540,180,40);
-        clear.addActionListener         (this);
+        send.setBounds(60, 540, 180, 40);
+        send.addActionListener(this);
+        clear.setBounds(260, 540, 180, 40);
+        clear.addActionListener(this);
 
-        frame.setDefaultCloseOperation  (JFrame.EXIT_ON_CLOSE);
-        frame.setSize                   (500, 800);
-        frame.setLayout                 (null);
-        frame.setVisible                (true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 800);
+        frame.setLayout(null);
+        frame.setVisible(true);
 
         addFrame(frame, Arrays.asList(nameF, nameS, login, phone, password, send, clear, titleLabel));
     }
 
-    private void clear(){
+    private void clear() {
         nameF.setText("");
         nameS.setText("");
         login.setText("");
@@ -62,8 +64,19 @@ public class Registration implements ActionListener, Command {
         password.setText("");
     }
 
-    private void send(){
-        InfoList infoList = new InfoList((nameF.getText() + " " + nameS.getText()), login.getText(), phone.getText(), String.valueOf(password.getText()));
-        infoList.printInfo();
+    private void send() {
+        if (nameF.getText().isBlank()){
+            System.out.println("first name empty");
+        }else if(nameS.getText().isBlank()){
+            System.out.println("second name empty");
+        }else if(login.getText().isBlank()){
+            System.out.println("login empty");
+        }else if(phone.getText().isBlank()){
+            System.out.println("phone empty");
+        }else{
+            new RegistrationDao().insert(new User(null, nameF.getText(), nameS.getText(), login.getText(), String.valueOf(password.getText()), phone.getText(), Rule.USER.ordinal()));
+            clear();
+            System.out.println("Success");
+        }
     }
 }

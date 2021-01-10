@@ -1,12 +1,20 @@
-inurymbetov/com/github/diplomka/Const.java
- inurymbetov.com.github.diplomka.Const
-inurymbetov/com/github/diplomka/Login.java
- inurymbetov.com.github.diplomka.Login
 inurymbetov/com/github/diplomka/Command.java
  inurymbetov.com.github.diplomka.Command
-inurymbetov/com/github/diplomka/InfoList.java
- inurymbetov.com.github.diplomka.InfoList
 inurymbetov/com/github/diplomka/Main.java
  inurymbetov.com.github.diplomka.Main
-inurymbetov/com/github/diplomka/Registration.java
- inurymbetov.com.github.diplomka.Registration
+inurymbetov/com/github/diplomka/Form/Registration.java
+ inurymbetov.com.github.diplomka.Form.Registration
+inurymbetov/com/github/diplomka/Form/Login.java
+ inurymbetov.com.github.diplomka.Form.Login
+inurymbetov/com/github/diplomka/Const.java
+ inurymbetov.com.github.diplomka.Const
+inurymbetov/com/github/diplomka/InfoList.java
+ inurymbetov.com.github.diplomka.InfoList
+inurymbetov/com/github/diplomka/entity/User.java
+ inurymbetov.com.github.diplomka.entity.User
+inurymbetov/com/github/diplomka/enums/Rule.java
+ inurymbetov.com.github.diplomka.enums.Rule
+inurymbetov/com/github/diplomka/dao/impl/RegistrationDao.java
+ inurymbetov.com.github.diplomka.dao.impl.RegistrationDao
+inurymbetov/com/github/diplomka/dao/AbDao.java
+ inurymbetov.com.github.diplomka.dao.AbDao

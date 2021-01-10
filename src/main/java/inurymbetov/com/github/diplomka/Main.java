@@ -1,10 +1,8 @@
 package inurymbetov.com.github.diplomka;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
+import inurymbetov.com.github.diplomka.Form.Registration;
+
 import java.util.HashMap;
-import java.util.List;
 
 public class Main {
 

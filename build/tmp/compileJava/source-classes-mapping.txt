@@ -2,6 +2,8 @@ inurymbetov/com/github/diplomka/Const.java
  inurymbetov.com.github.diplomka.Const
 inurymbetov/com/github/diplomka/Login.java
  inurymbetov.com.github.diplomka.Login
+inurymbetov/com/github/diplomka/Command.java
+ inurymbetov.com.github.diplomka.Command
 inurymbetov/com/github/diplomka/InfoList.java
  inurymbetov.com.github.diplomka.InfoList
 inurymbetov/com/github/diplomka/Main.java

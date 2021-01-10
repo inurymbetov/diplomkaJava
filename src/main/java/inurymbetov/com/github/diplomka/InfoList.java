@@ -8,15 +8,11 @@ import java.util.List;
 public class InfoList {
     private List<String> info = new ArrayList<>();
 
-    InfoList(String name, String login, String phone, String password){
+    public InfoList(String name, String login, String phone, String password){
         this.info.add(name);
         this.info.add(login);
         this.info.add(phone);
         this.info.add(password);
-    }
-
-    public InfoList(JFrame frame, List<Component> componentList){
-        componentList.forEach(frame::add);
     }
 
     public void printInfo(){

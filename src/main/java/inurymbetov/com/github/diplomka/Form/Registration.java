@@ -1,18 +1,21 @@
-package inurymbetov.com.github.diplomka;
+package inurymbetov.com.github.diplomka.Form;
+
+import inurymbetov.com.github.diplomka.Command;
+import inurymbetov.com.github.diplomka.InfoList;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-public class Registration implements ActionListener {
+@Slf4j
+public class Registration implements ActionListener, Command {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getActionCommand().equals(clear.getActionCommand())) clear();
+        if (e.getActionCommand().equals(send.getActionCommand())) send();
     }
 
     private JFrame frame                = new JFrame();
@@ -39,13 +42,28 @@ public class Registration implements ActionListener {
         password.setBounds              (60,460,380,39);
 
         send.setBounds                  (60,540,180,40);
+        send.addActionListener          (this);
         clear.setBounds                 (260,540,180,40);
+        clear.addActionListener         (this);
 
         frame.setDefaultCloseOperation  (JFrame.EXIT_ON_CLOSE);
         frame.setSize                   (500, 800);
         frame.setLayout                 (null);
         frame.setVisible                (true);
 
-        new  InfoList(frame, Arrays.asList(nameF, nameS, login, phone, password, send, clear, titleLabel));
+        addFrame(frame, Arrays.asList(nameF, nameS, login, phone, password, send, clear, titleLabel));
+    }
+
+    private void clear(){
+        nameF.setText("");
+        nameS.setText("");
+        login.setText("");
+        phone.setText("");
+        password.setText("");
+    }
+
+    private void send(){
+        InfoList infoList = new InfoList((nameF.getText() + " " + nameS.getText()), login.getText(), phone.getText(), String.valueOf(password.getText()));
+        infoList.printInfo();
     }
 }
